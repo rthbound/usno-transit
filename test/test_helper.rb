@@ -1,0 +1,11 @@
+require 'coveralls'
+Coveralls.wear!
+
+require "minitest/autorun"
+
+# The gem
+$: << File.dirname(__FILE__) + "/../lib"
+$: << File.dirname(__FILE__)
+
+require "usno/transit"
+require "usno/transit/us_city_request"
