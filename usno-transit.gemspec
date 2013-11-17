@@ -8,8 +8,12 @@ Gem::Specification.new do |spec|
   spec.version       = Usno::Transit::VERSION
   spec.authors       = ["Ryan T. Hosford"]
   spec.email         = ["tad.hosford@gmail.com"]
-  spec.description   = %q{TODO: Write a gem description}
-  spec.summary       = %q{TODO: Write a gem summary}
+  spec.description   = %q{Consumes USNO resources to return times of rise, set,
+    and transit for the major solar system bodies and selected bright stars.
+  }
+  spec.summary       = %q{Consumes USNO resources to return times of rise, set,
+    and transit for the major solar system bodies and selected bright stars.
+  }
   spec.homepage      = ""
   spec.license       = "MIT"
 
@@ -19,6 +23,8 @@ Gem::Specification.new do |spec|
   spec.require_paths = ["lib"]
 
   spec.add_development_dependency "bundler", "~> 1.3"
+  spec.add_development_dependency "minitest"
+  spec.add_development_dependency "coveralls"
   spec.add_development_dependency "rake"
   spec.add_development_dependency "pry"
   spec.add_runtime_dependency "pay_dirt"

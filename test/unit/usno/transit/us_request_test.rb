@@ -1,14 +1,15 @@
 require 'test_helper'
 
-describe Usno::Transit::UsCityRequest do
+describe USNO::Transit::USRequest do
   before do
-    @subject = Usno::Transit::UsCityRequest
+    @subject = USNO::Transit::USRequest
     @params = {
-      city: MiniTest::Mock.new,
-      state: MiniTest::Mock.new,
-      count: MiniTest::Mock.new,
-      date: MiniTest::Mock.new,
-      z_meters: MiniTest::Mock.new,
+      city: "Birmingham",
+      state: "Alabama",
+      count: 3,
+      date: Time.now,
+      z_meters: 0,
+      obj: "4"
     }
   end
 
