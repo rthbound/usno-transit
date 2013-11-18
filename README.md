@@ -56,8 +56,13 @@ the output of the above call will look something like the following
 </html>
 ```
 
+## Other USNO libraries
+
+[usno-imagery](http://github.com/rthbound/usno-transit) builds URLs for consuming USNO's imagery data services. These services provide synthetic views of earth and other selected solar system bodies.
 
 ## Contributing
+
+If anyone wants to have a go at parsing the text/html output into JSON and/or CSV format (for graphing purposes), have at it! Otherwise, I'll be building that out in the near future.
 
 1. Fork it
 2. Create your feature branch (`git checkout -b my-new-feature`)
