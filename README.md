@@ -1,4 +1,4 @@
-# Usno::Transit [![Code Climate](https://codeclimate.com/github/rthbound/usno-transit.png)](https://codeclimate.com/github/rthbound/usno-transit)[![Coverage Status](https://coveralls.io/repos/rthbound/usno-transit/badge.png)](https://coveralls.io/r/rthbound/usno-transit)
+# Usno::Transit [![Code Climate](https://codeclimate.com/github/rthbound/usno-transit.png)](https://codeclimate.com/github/rthbound/usno-transit)[![Coverage Status](https://coveralls.io/repos/rthbound/usno-transit/badge.png)](https://coveralls.io/r/rthbound/usno-transit)[![Build Status](https://travis-ci.org/rthbound/usno-transit.png?branch=master)](https://travis-ci.org/rthbound/usno-transit)
 
 ## Installation
 
