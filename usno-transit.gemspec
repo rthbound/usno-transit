@@ -16,7 +16,6 @@ Gem::Specification.new do |spec|
   }
   spec.homepage      = "http://github.com/rthbound/usno-transit"
   spec.license       = "MIT"
-
   spec.files         = `git ls-files`.split($/)
   spec.executables   = spec.files.grep(%r{^bin/}) { |f| File.basename(f) }
   spec.test_files    = spec.files.grep(%r{^(test|spec|features)/})
@@ -26,6 +25,5 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "minitest"
   spec.add_development_dependency "coveralls"
   spec.add_development_dependency "rake"
-  spec.add_development_dependency "pry"
-  spec.add_runtime_dependency "pay_dirt"
+  spec.add_runtime_dependency     "pay_dirt"
 end
