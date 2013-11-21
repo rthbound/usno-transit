@@ -62,7 +62,7 @@ the output of the above call will look something like the following
 
 ## Contributing
 
-If anyone wants to have a go at parsing the text/html output into JSON and/or CSV format (for graphing purposes), have at it! Otherwise, I'll be building that out in the near future.
+First on the TODO list is adding support for [Transit Form B](http://aa.usno.navy.mil/data/docs/mrst.php) (transit data as seen from locations worldwide). Also, if anyone wants to have a go at parsing the text/html output into JSON and/or CSV format (for graphing purposes), have at it! Otherwise, I'll be building that out in the near future.
 
 1. Fork it
 2. Create your feature branch (`git checkout -b my-new-feature`)
