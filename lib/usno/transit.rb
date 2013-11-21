@@ -29,7 +29,7 @@ module USNO
           date:          Time.now,
           days:          5,
         }.merge(options).merge!({
-          request_options: options.dup.reject do |k,_| 
+          request_options: options.reject do |k,_| 
             k.to_s == "request_class" 
           end
         })
