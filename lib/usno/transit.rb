@@ -22,15 +22,17 @@ module USNO
 
       private
       def form_options(options)
-        {
+        options = {
           request_class: USNO::Transit::USRequest,
           object:        USNO::Transit::Bodies.fetch(self.class.name.to_s.split("::")[-1]),
           z_meters:      0,
           date:          Time.now,
           days:          5,
-        }.merge(options).merge!({
-          request_options: options.reject do |k,_| 
-            k.to_s == "request_class" 
+        }.merge(options)
+
+        options.merge!({
+          request_options: options.reject do |k,_|
+            k.to_s == "request_class"
           end
         })
       end
