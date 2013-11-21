@@ -9,7 +9,7 @@ describe USNO::Transit::USRequest do
       count: 3,
       date: Time.now,
       z_meters: 0,
-      obj: "4"
+      object: "4"
     }
   end
 

@@ -12,7 +12,7 @@ module USNO
           uri: URI.parse("http://aa.usno.navy.mil/cgi-bin/aa_mrst2.pl")
         }.merge(options)
 
-        load_options(:city, :state, :days, :date, :obj, options)
+        load_options(:city, :state, :days, :date, :object, options)
       end
 
       def call
@@ -45,7 +45,7 @@ module USNO
           ID=AA
           #{start_date}
           rep=#{@days}
-          obj=#{@obj}
+          obj=#{@object}
           #{place}
           ZZZ=END
         }.join("&")
