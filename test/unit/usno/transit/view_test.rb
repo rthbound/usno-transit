@@ -6,7 +6,7 @@ describe USNO::Transit::View do
     -> { USNO::Transit::View.new }.must_raise RuntimeError
   end
 
-  describe "can be instantiated by a valid subclass" do
+  describe "being instantiated by a valid subclass" do
     before do
       @valid_subclasses = USNO::Transit::Bodies.hash.keys
     end
@@ -14,9 +14,11 @@ describe USNO::Transit::View do
     it "instantiates for each valid subclass" do
       @valid_subclasses.each do |k|
         @subject = instance_eval("USNO::Transit::#{k}")
+
         assert_instance_of(@subject, @subject.new)
+
+        @subject.new.must_respond_to :call, "should respond to #call"
       end
     end
   end
-
 end
