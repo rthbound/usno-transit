@@ -20,18 +20,6 @@ module USNO
         @date.strftime("xxy=%Y&xxm=%m&xxd=%d")
       end
 
-      def request_body
-        %W{
-          FFX=1
-          ID=AA
-          #{start_date}
-          rep=#{@days}
-          obj=#{@object}
-          #{place}
-          ZZZ=END
-        }.join("&")
-      end
-
       def http_headers
         {
           "Accept" => "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
