@@ -8,4 +8,3 @@ $: << File.dirname(__FILE__) + "/../lib"
 $: << File.dirname(__FILE__)
 
 require "usno/transit"
-require "usno/transit/us_request"

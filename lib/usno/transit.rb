@@ -4,6 +4,7 @@ require_relative "transit/states"
 require_relative "transit/bodies"
 
 require_relative "transit/us_request"
+require_relative "transit/worldwide_request"
 
 module USNO
   module Transit
