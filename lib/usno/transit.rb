@@ -3,6 +3,7 @@ require_relative "transit/version"
 require_relative "transit/states"
 require_relative "transit/bodies"
 
+require_relative "transit/request"
 require_relative "transit/us_request"
 require_relative "transit/worldwide_request"
 
