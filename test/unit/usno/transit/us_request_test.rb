@@ -5,7 +5,7 @@ describe USNO::Transit::USRequest do
     @subject = USNO::Transit::USRequest
     @params = {
       city: "Birmingham",
-      state: "Alabama",
+      state: "AL",
       count: 3,
       date: Time.now,
       z_meters: 0,
@@ -28,6 +28,7 @@ describe USNO::Transit::USRequest do
     it "executes successfully" do
       result = @subject.new(@params).call
       result.successful?.must_equal true
+      result.data.must_include("BIRMINGHAM, AL")
       result.must_be_kind_of PayDirt::Result
     end
   end

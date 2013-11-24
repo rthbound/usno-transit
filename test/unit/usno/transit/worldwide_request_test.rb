@@ -4,7 +4,7 @@ describe USNO::Transit::WorldWideRequest do
   before do
     @subject = USNO::Transit::WorldWideRequest
     @params = {
-      city: "Greenwich",
+      city: "Greenwich Test",
       count: 3,
       date: Time.now,
       z_meters: 0,
@@ -29,6 +29,7 @@ describe USNO::Transit::WorldWideRequest do
     it "executes successfully" do
       result = @subject.new(@params).call
       result.successful?.must_equal true
+      result.data.must_include "Greenwich Test"
       result.must_be_kind_of PayDirt::Result
     end
   end
