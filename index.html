@@ -1,0 +1,178 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>usno-transit by rthbound</title>
+
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <h1>usno-transit</h1>
+        <p>Consumes USNO resources to return times of rise, set, and transit for the major solar system bodies and selected bright stars.</p>
+
+        <p class="view"><a href="https://github.com/rthbound/usno-transit">View the Project on GitHub <small>rthbound/usno-transit</small></a></p>
+
+
+        <ul>
+          <li><a href="https://github.com/rthbound/usno-transit/zipball/master">Download <strong>ZIP File</strong></a></li>
+          <li><a href="https://github.com/rthbound/usno-transit/tarball/master">Download <strong>TAR Ball</strong></a></li>
+          <li><a href="https://github.com/rthbound/usno-transit">View On <strong>GitHub</strong></a></li>
+        </ul>
+      </header>
+      <section>
+        <h1>
+<a name="usnotransit-" class="anchor" href="#usnotransit-"><span class="octicon octicon-link"></span></a>USNO::Transit <a href="https://codeclimate.com/github/rthbound/usno-transit"><img src="https://codeclimate.com/github/rthbound/usno-transit.png" alt="Code Climate"></a><a href="https://coveralls.io/r/rthbound/usno-transit"><img src="https://coveralls.io/repos/rthbound/usno-transit/badge.png" alt="Coverage Status"></a><a href="https://travis-ci.org/rthbound/usno-transit"><img src="https://travis-ci.org/rthbound/usno-transit.png?branch=master" alt="Build Status"></a>
+</h1>
+
+<p>This project now supports USNO Rise/Set/Transit Form B (Locations Worldwide). Notes on usage can be found below.</p>
+
+<h2>
+<a name="installation" class="anchor" href="#installation"><span class="octicon octicon-link"></span></a>Installation</h2>
+
+<p>Add this line to your application's Gemfile:</p>
+
+<pre><code>gem 'usno-transit'
+</code></pre>
+
+<p>And then execute:</p>
+
+<pre><code>$ bundle
+</code></pre>
+
+<p>Or install it yourself as:</p>
+
+<pre><code>$ gem install usno-transit
+</code></pre>
+
+<h2>
+<a name="usage-us-locations" class="anchor" href="#usage-us-locations"><span class="octicon octicon-link"></span></a>Usage (US Locations)</h2>
+
+<div class="highlight highlight-ruby"><pre><span class="nb">require</span> <span class="s2">"usno/transit"</span>
+
+<span class="ss">USNO</span><span class="p">:</span><span class="ss">:Transit</span><span class="o">::</span><span class="no">Sun</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="ss">city</span><span class="p">:</span> <span class="s2">"Birmingham"</span><span class="p">,</span> <span class="ss">state</span><span class="p">:</span> <span class="s2">"AL"</span><span class="p">)</span><span class="o">.</span><span class="n">call</span><span class="o">.</span><span class="n">data</span>
+</pre></div>
+
+<p>the output of the above call will look something like the following</p>
+
+<div class="highlight highlight-html"><pre><span class="cp">&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"&gt;</span>
+<span class="nt">&lt;html&gt;</span>
+<span class="nt">&lt;head&gt;</span>
+<span class="nt">&lt;title&gt;</span>Rise/Set/Transit Table<span class="nt">&lt;/title&gt;</span>
+<span class="nt">&lt;meta</span> <span class="na">http-equiv=</span><span class="s">"Content-Type"</span> <span class="na">content=</span><span class="s">"text/html; charset=ISO-8859-1"</span><span class="nt">&gt;</span>
+<span class="nt">&lt;/head&gt;</span>
+<span class="nt">&lt;body&gt;</span>
+<span class="nt">&lt;pre&gt;</span>
+                                     Sun                                     
+
+                             BIRMINGHAM, ALABAMA                             
+              Location:  W 86°48'36.0", N33°31'48.0",     0m               
+                 (Longitude referred to Greenwich meridian)                  
+
+                    Time Zone:  6h 00m west of Greenwich                     
+
+      Date         Begin      Rise  Az.   Transit Alt.    Set  Az.     End
+     (Zone)        Civil                                              Civil  
+                  Twilight                                           Twilight
+                     h  m     h  m   °      h  m  °       h  m   °      h  m
+2013 Nov 17 (Sun)   05:54    06:21 113     11:32 37S     16:43 247     17:10      
+2013 Nov 18 (Mon)   05:55    06:22 113     11:33 37S     16:43 247     17:09      
+2013 Nov 19 (Tue)   05:56    06:23 113     11:33 37S     16:42 247     17:09      
+2013 Nov 20 (Wed)   05:57    06:24 113     11:33 37S     16:42 247     17:09      
+2013 Nov 21 (Thu)   05:58    06:25 114     11:33 36S     16:42 246     17:08      
+
+<span class="nt">&lt;/pre&gt;</span>
+<span class="nt">&lt;p&gt;&lt;a</span> <span class="na">href=</span><span class="s">"javascript:history.go(-1)"</span><span class="nt">&gt;</span>Back to form<span class="nt">&lt;/a&gt;&lt;/p&gt;</span>
+<span class="nt">&lt;/body&gt;</span>
+<span class="nt">&lt;/html&gt;</span>
+</pre></div>
+
+<h2>
+<a name="usage-us-locations-1" class="anchor" href="#usage-us-locations-1"><span class="octicon octicon-link"></span></a>Usage (US Locations)</h2>
+
+<div class="highlight highlight-ruby"><pre><span class="nb">require</span> <span class="s2">"usno/transit"</span>
+
+<span class="c1"># Just override the default :request_class options and provide a longitude/latitude</span>
+<span class="c1"># For a more precise location, you can provide :long_minutes, :lat_minutes,</span>
+<span class="c1">#   :long_seconds, and :lat_seconds</span>
+<span class="ss">USNO</span><span class="p">:</span><span class="ss">:Transit</span><span class="o">::</span><span class="no">Sun</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="ss">lat</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="ss">long</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="n">request_class</span><span class="p">:</span> <span class="ss">USNO</span><span class="p">:</span><span class="ss">:Transit</span><span class="o">::</span><span class="no">WorldwideRequest</span><span class="p">)</span><span class="o">.</span><span class="n">call</span><span class="o">.</span><span class="n">data</span>
+</pre></div>
+
+<p>The output from the above command should return something like the following</p>
+
+<div class="highlight highlight-html"><pre><span class="cp">&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"&gt;</span>
+<span class="nt">&lt;html&gt;</span>
+<span class="nt">&lt;head&gt;</span>
+<span class="nt">&lt;title&gt;</span>Rise/Set/Transit Table<span class="nt">&lt;/title&gt;</span>
+<span class="nt">&lt;meta</span> <span class="na">http-equiv=</span><span class="s">"Content-Type"</span> <span class="na">content=</span><span class="s">"text/html; charset=ISO-8859-1"</span><span class="nt">&gt;</span>
+<span class="nt">&lt;/head&gt;</span>
+<span class="nt">&lt;body&gt;</span>
+<span class="nt">&lt;pre&gt;</span>
+                                     Sun                                     
+
+
+              Location:     0°00'00.0",   0°00'00.0",     0m               
+                 (Longitude referred to Greenwich meridian)                  
+
+                            Time Zone: Greenwich                             
+
+      Date         Begin      Rise  Az.   Transit Alt.    Set  Az.     End
+     (Zone)        Civil                                              Civil  
+                  Twilight                                           Twilight
+                     h  m     h  m   °      h  m  °       h  m   °      h  m
+2013 Nov 24 (Sun)   05:21    05:43 111     11:47 69S     17:50 249     18:12      
+2013 Nov 25 (Mon)   05:21    05:43 111     11:47 69S     17:51 249     18:13      
+2013 Nov 26 (Tue)   05:22    05:44 111     11:47 69S     17:51 249     18:13      
+2013 Nov 27 (Wed)   05:22    05:44 111     11:48 69S     17:51 249     18:14      
+2013 Nov 28 (Thu)   05:22    05:44 111     11:48 69S     17:52 249     18:14      
+
+<span class="nt">&lt;/pre&gt;</span>
+<span class="nt">&lt;p&gt;&lt;a</span> <span class="na">href=</span><span class="s">"javascript:history.go(-1)"</span><span class="nt">&gt;</span>Back to form<span class="nt">&lt;/a&gt;&lt;/p&gt;</span>
+<span class="nt">&lt;/body&gt;</span>
+<span class="nt">&lt;/html&gt;</span>
+</pre></div>
+
+<h2>
+<a name="other-usno-libraries" class="anchor" href="#other-usno-libraries"><span class="octicon octicon-link"></span></a>Other USNO libraries</h2>
+
+<p><a href="http://github.com/rthbound/usno-transit">usno-imagery</a> builds URLs for consuming USNO's imagery data services. These services provide synthetic views of earth and other selected solar system bodies.</p>
+
+<h2>
+<a name="contributing" class="anchor" href="#contributing"><span class="octicon octicon-link"></span></a>Contributing</h2>
+
+<p>If anyone wants to have a go at parsing the text/html output into JSON and/or CSV format (for graphing purposes), have at it! If not, I'll get to it soon enough :)</p>
+
+<ol>
+<li>Fork it</li>
+<li>Create your feature branch (<code>git checkout -b my-new-feature</code>)</li>
+<li>Commit your changes (<code>git commit -am 'Add some feature'</code>)</li>
+<li>Push to the branch (<code>git push origin my-new-feature</code>)</li>
+<li>Create new Pull Request</li>
+</ol><p><a href="https://bitdeli.com/free" title="Bitdeli Badge"><img src="https://d2weczhvl823v0.cloudfront.net/rthbound/usno-transit/trend.png" alt="Bitdeli Badge"></a></p>
+      </section>
+      <footer>
+        <p>This project is maintained by <a href="https://github.com/rthbound">rthbound</a></p>
+        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
+      </footer>
+    </div>
+    <script src="javascripts/scale.fix.js"></script>
+              <script type="text/javascript">
+            var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+            document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+          </script>
+          <script type="text/javascript">
+            try {
+              var pageTracker = _gat._getTracker("UA-41441385-1");
+            pageTracker._trackPageview();
+            } catch(err) {}
+          </script>
+
+  </body>
+</html>
