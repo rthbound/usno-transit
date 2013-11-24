@@ -1,5 +1,7 @@
 # Usno::Transit [![Code Climate](https://codeclimate.com/github/rthbound/usno-transit.png)](https://codeclimate.com/github/rthbound/usno-transit)[![Coverage Status](https://coveralls.io/repos/rthbound/usno-transit/badge.png)](https://coveralls.io/r/rthbound/usno-transit)[![Build Status](https://travis-ci.org/rthbound/usno-transit.png?branch=master)](https://travis-ci.org/rthbound/usno-transit)
 
+This project now supports USNO Rise/Set/Transit Form B (Locations Worldwide). Notes on usage can be found below.
+
 ## Installation
 
 Add this line to your application's Gemfile:
@@ -14,10 +16,11 @@ Or install it yourself as:
 
     $ gem install usno-transit
 
-## Usage
+## Usage (US Locations)
 
 ```ruby
 require "usno/transit"
+
 USNO::Transit::Sun.new(city: "Birmingham", state: "AL").call.data
 ```
 
@@ -56,13 +59,59 @@ the output of the above call will look something like the following
 </html>
 ```
 
+## Usage (US Locations)
+
+```ruby
+require "usno/transit"
+
+# Just override the default :request_class options and provide a longitude/latitude
+# For a more precise location, you can provide :long_minutes, :lat_minutes,
+#   :long_seconds, and :lat_seconds
+USNO::Transit::Sun.new(lat: 0, long: 0, request_class: USNO::Transit::WorldwideRequest).call.data
+```
+
+The output from the above command should return something like the following
+
+```html
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Rise/Set/Transit Table</title>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+</head>
+<body>
+<pre>
+                                     Sun                                     
+     
+
+              Location:     0°00'00.0",   0°00'00.0",     0m               
+                 (Longitude referred to Greenwich meridian)                  
+     
+                            Time Zone: Greenwich                             
+     
+      Date         Begin      Rise  Az.   Transit Alt.    Set  Az.     End
+     (Zone)        Civil                                              Civil  
+                  Twilight                                           Twilight
+                     h  m     h  m   °      h  m  °       h  m   °      h  m
+2013 Nov 24 (Sun)   05:21    05:43 111     11:47 69S     17:50 249     18:12      
+2013 Nov 25 (Mon)   05:21    05:43 111     11:47 69S     17:51 249     18:13      
+2013 Nov 26 (Tue)   05:22    05:44 111     11:47 69S     17:51 249     18:13      
+2013 Nov 27 (Wed)   05:22    05:44 111     11:48 69S     17:51 249     18:14      
+2013 Nov 28 (Thu)   05:22    05:44 111     11:48 69S     17:52 249     18:14      
+
+</pre>
+<p><a href="javascript:history.go(-1)">Back to form</a></p>
+</body>
+</html>
+```
+
 ## Other USNO libraries
 
 [usno-imagery](http://github.com/rthbound/usno-transit) builds URLs for consuming USNO's imagery data services. These services provide synthetic views of earth and other selected solar system bodies.
 
 ## Contributing
 
-First on the TODO list is adding support for [Transit Form B](http://aa.usno.navy.mil/data/docs/mrst.php) (transit data as seen from locations worldwide). Also, if anyone wants to have a go at parsing the text/html output into JSON and/or CSV format (for graphing purposes), have at it! Otherwise, I'll be building that out in the near future.
+If anyone wants to have a go at parsing the text/html output into JSON and/or CSV format (for graphing purposes), have at it! If not, I'll get to it soon enough :)
 
 1. Fork it
 2. Create your feature branch (`git checkout -b my-new-feature`)

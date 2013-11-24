@@ -16,7 +16,7 @@ module USNO
         }.merge(options)
 
 
-        load_options(:long_degrees, :lat_degrees, :days, :date, :object, options)
+        load_options(:long, :lat, :days, :date, :object, options)
       end
 
       def call
@@ -38,14 +38,14 @@ module USNO
 
       def coordinates
         %W{
-          xx0=#{ sign_of(@long_degrees) }
-          xx1=#{ @long_degrees }
+          xx0=#{ sign_of(@long) }
+          xx1=#{ @long }
           xx2=#{ @long_minutes }
           xx3=#{ @long_seconds }
-          yy1=#{ @lat_degrees }
+          yy1=#{ @lat }
           yy2=#{ @lat_minutes }
           yy3=#{ @lat_seconds }
-          yy0=#{ sign_of(@lat_degrees) }
+          yy0=#{ sign_of(@lat) }
         }.join("&")
       end
 

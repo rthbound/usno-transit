@@ -8,8 +8,8 @@ describe USNO::Transit::WorldWideRequest do
       count: 3,
       date: Time.now,
       z_meters: 0,
-      long_degrees: 0,
-      lat_degrees: 0,
+      long: 0,
+      lat: 0,
       object: "4"
     }
   end
@@ -20,8 +20,8 @@ describe USNO::Transit::WorldWideRequest do
     end
 
     it "errors when initialized without required dependencies" do
-      -> { @subject.new(@params.reject { |k| k.to_s == 'lat_degrees' }) }.must_raise RuntimeError
-      -> { @subject.new(@params.reject { |k| k.to_s == 'long_degrees' }) }.must_raise RuntimeError
+      -> { @subject.new(@params.reject { |k| k.to_s == 'lat' }) }.must_raise RuntimeError
+      -> { @subject.new(@params.reject { |k| k.to_s == 'long' }) }.must_raise RuntimeError
     end
   end
 
