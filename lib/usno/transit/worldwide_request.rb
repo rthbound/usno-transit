@@ -39,10 +39,10 @@ module USNO
       def coordinates
         %W{
           xx0=#{ sign_of(@long) }
-          xx1=#{ @long }
+          xx1=#{ @long.abs }
           xx2=#{ @long_minutes }
           xx3=#{ @long_seconds }
-          yy1=#{ @lat }
+          yy1=#{ @lat.abs }
           yy2=#{ @lat_minutes }
           yy3=#{ @lat_seconds }
           yy0=#{ sign_of(@lat) }
